@@ -29,7 +29,7 @@ export default class UnsplashAPI {
     return fetch(URL, this.fetchOptions).then(r => r.json());
   }
 
-  search = ({ query, page = 1, perPage = 10 }) => {
+  search = ({ query, page = 1, perPage = 20 }) => {
     const params = {
       query,
       page,

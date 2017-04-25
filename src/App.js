@@ -1,35 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Container, Grid, GridCell } from './Grid';
-import ImageSearch from './ImageSearch';
-
-const RecentSearches = styled.ol`
-  margin: 0;
-  padding: 20px;
-  background: #eee;
-`;
-const SearchItem = styled.li`
-  list-style-type: none;
-`;
+import cakeSearch from './cake.json';
+import { Container, Row, Cell } from './Grid';
 
 export default function App() {
+  const images = cakeSearch.results;
   return (
     <Container>
-      <Grid>
-        <GridCell cols="6">
-          <ImageSearch />
-        </GridCell>
-
-        <GridCell>
-          <RecentSearches>
-            <SearchItem>
-              image
-              search query
-            </SearchItem>
-          </RecentSearches>
-        </GridCell>
-      </Grid>
+      <Row>
+        {images.map(img => (
+          <Cell cols="6" key={img.id}>
+            <img src={img.urls.regular} style={{ maxWidth: '100%' }} />
+            {/*<pre>
+                {JSON.stringify(img, '', '  ')}
+              </pre>*/}
+          </Cell>
+        ))}
+      </Row>
     </Container>
   );
 }
