@@ -12,9 +12,6 @@ export default function App() {
         {images.map(img => (
           <Cell cols="6" key={img.id}>
             <img src={img.urls.regular} style={{ maxWidth: '100%' }} />
-            {/*<pre>
-                {JSON.stringify(img, '', '  ')}
-              </pre>*/}
           </Cell>
         ))}
       </Row>
